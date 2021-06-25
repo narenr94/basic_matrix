@@ -6,6 +6,7 @@ int main()
     int j = 0;
     double val = 0;
     matrix mat1, mat2, mat3;
+    matrix * mat4;
 
     initMatrix(&mat1, 4, 2);
     initMatrix(&mat2, 2, 4);
@@ -34,32 +35,23 @@ int main()
     printMatrix(&mat3);
     printf("\n");
 
-    mulMatrix(&mat1,&mat2);
+    mat4 = mulMatrix_ret(&mat1,&mat2);
     printf("Result Matrix:\n");
-    printMatrix(&mat1);
+    printMatrix(mat4);
     printf("\n");
+    free(mat4);
 
     printf("mat2_transpose:\n");
-    transpose(&mat2);
-    
-    printMatrix(&mat2);
+    mat4 = transpose_ret(&mat2);
+    printMatrix(mat4);
     printf("\n");
+    free(mat4);
 
     printf("mat2_add:\n");
-    addMatrix(&mat2, &mat2);
-    printMatrix(&mat2);
+    mat4 = addMatrix_ret(&mat2, &mat2);
+    printMatrix(mat4);
     printf("\n");
 
-    printf("mat2_add:\n");
-    addMatrix(&mat2, &mat2);
-    printMatrix(&mat2);
-    printf("\n");
-
-    printf("mat2_sub_mat3t:\n");
-    transpose(&mat3);
-    subMatrix(&mat2, &mat3);
-    printMatrix(&mat2);
-    printf("\n");
 
     return 0;
 }

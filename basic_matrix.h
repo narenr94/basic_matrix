@@ -63,5 +63,21 @@ void printMatrix(matrix *mat);
 //mat is the pointer to the matrix
 bool enterElement(matrix *mat, unsigned int row, unsigned int col, double val);
 
+//transpose_ret()
+//transposes input matrix and returns the transposed matrix
+//mat is the pointer to the input matrix
+matrix * transpose_ret(matrix *mat);
+
+//addMatrix_ret()
+//returns a matrix containing the sum of the input matrices
+matrix * addMatrix_ret(matrix *dstMat, matrix *srcMat);
+
+//subMatric_ret()
+//returns the difference of the input matrices, dst- src
+matrix * subMatrix_ret(matrix *dstMat, matrix *srcMat);
+
+//mulMatrix()
+//returns dot multiplication of dstMat and scrMat, dstMat column should be equal to srcMat row, result is stored in dstMat
+matrix * mulMatrix_ret(matrix *dstMat, matrix *srcMat);
 
 #endif
