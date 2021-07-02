@@ -6,3 +6,5 @@ library for basic matrix operations
 contains enter element, add, subtract, multiply, transpose and print functionalities
 ->0.2.0
 contains functions that return matrix for add, subract, multiply and transponse
+->0.3.1
+added elemental multiplication and fixed init function consistency issue
