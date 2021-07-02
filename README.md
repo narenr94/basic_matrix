@@ -7,4 +7,4 @@ contains enter element, add, subtract, multiply, transpose and print functionali
 ->0.2.0
 contains functions that return matrix for add, subract, multiply and transponse
 ->0.3.1
-added elemental multiplication and fixed init function consistency issue
+added elemental multiplication and fixed init function consistency issue by swapping rwo and column arguments
