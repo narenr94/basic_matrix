@@ -8,15 +8,15 @@ int main()
     matrix mat1, mat2, mat3;
     matrix * mat4;
 
-    initMatrix(&mat1, 4, 2);
-    initMatrix(&mat2, 2, 4);
-    initMatrix(&mat3, 2, 4);
+    initMatrix(&mat1, 2, 4);
+    initMatrix(&mat2, 4, 2);
+    initMatrix(&mat3, 4, 2);
     for(i = 0; i < mat1.row; i++)
     {
         for(j = 0; j < mat1.col; j++)
         {
             val = (i * mat1.col) + j;
-            printf("%d\n", val);
+            printf("%f\n", val);
             enterElement(&mat1, i, j, val);
             enterElement(&mat2, j, i, val);
             enterElement(&mat3, j, i, val);
@@ -47,7 +47,7 @@ int main()
     printf("\n");
     free(mat4);
 
-    printf("mat2_add:\n");
+    printf("mat2_add_mat2:\n");
     mat4 = addMatrix_ret(&mat2, &mat2);
     printMatrix(mat4);
     printf("\n");

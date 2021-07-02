@@ -30,7 +30,7 @@ double *val;
 //mat: pointer to matrix struct to be initialized
 //row is size of row
 //col is size of col
-void initMatrix(matrix *mat, unsigned int col, unsigned int row);
+void initMatrix(matrix *mat, unsigned int row, unsigned int col);
 
 //transpose()
 //transposes input matrix
@@ -79,5 +79,13 @@ matrix * subMatrix_ret(matrix *dstMat, matrix *srcMat);
 //mulMatrix()
 //returns dot multiplication of dstMat and scrMat, dstMat column should be equal to srcMat row, result is stored in dstMat
 matrix * mulMatrix_ret(matrix *dstMat, matrix *srcMat);
+
+//getMatrix_ele()
+//return values stored in respective row/column
+double getMatrix_ele(matrix *mat, unsigned int row, unsigned int col);
+
+//eleMulMatrix()
+//multiplies each element of mat with val
+void eleMulMatrix(matrix *mat, double val);
 
 #endif

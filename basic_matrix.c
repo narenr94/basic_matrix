@@ -19,7 +19,7 @@ i.e., row followed by column
 /////////////////////////////////////////////////////////////////////////////////////////////
 #include "basic_matrix.h"
 
-void initMatrix(matrix *mat, unsigned int col, unsigned int row)
+void initMatrix(matrix *mat, unsigned int row, unsigned int col)
 {
 
     unsigned int i = 0;
@@ -54,7 +54,6 @@ void transpose(matrix *mat)
         
     }
 
-    //mat->row =2 mat->col = 4
     ////////////////////////////////0123 4567 -> 04 15 26 37////////////////////////////// 
     for(i = 0; i < mat->row; i++)
     {
@@ -86,7 +85,7 @@ matrix * transpose_ret(matrix *mat)
 {
     matrix * new = (matrix *)malloc(sizeof(matrix));
 
-    initMatrix(new, mat->row, mat->col);
+    initMatrix(new, mat->col, mat->row);
 
     int i = 0;
     int j = 0;
@@ -145,7 +144,7 @@ matrix * addMatrix_ret(matrix *dstMat, matrix *srcMat)
     }
     matrix * new = (matrix *)malloc(sizeof(matrix));
 
-    initMatrix(new, dstMat->col, dstMat->row);
+    initMatrix(new, dstMat->row, dstMat->col);
     int i = 0;
     int j = 0;
     int tempRow = 0;
@@ -196,7 +195,7 @@ matrix * subMatrix_ret(matrix *dstMat, matrix *srcMat)
     }
     matrix * new = (matrix *)malloc(sizeof(matrix));
 
-    initMatrix(new, dstMat->col, dstMat->row);
+    initMatrix(new, dstMat->row, dstMat->col);
     int i = 0;
     int j = 0;
     int tempRow = 0;
@@ -289,7 +288,7 @@ matrix * mulMatrix_ret(matrix *dstMat, matrix *srcMat)
 
     matrix * new = (matrix *)malloc(sizeof(matrix));
 
-    initMatrix(new, srcMat->col, dstMat->row);
+    initMatrix(new, dstMat->row, srcMat->col);
 
     for(i = 0; i < dstMat->row; i++)
     {
@@ -343,4 +342,40 @@ bool enterElement(matrix *mat, unsigned int row, unsigned int col, double val)
     mat->val[tempRow] = val;
 
     return true;
+}
+
+double getMatrix_ele(matrix *mat, unsigned int row, unsigned int col)
+{
+    if(mat->col < col || mat->row < row)
+    {
+        return 0;
+    }
+
+    double val = 0;
+    int index = (row * mat->col) + col;
+
+
+    val = mat->val[index];
+
+    return val;
+}
+
+void eleMulMatrix(matrix *mat, double val)
+{
+    int i, j;
+    int index = 0;
+    double val1;
+
+    for(i = 0; i < mat->row; i++)
+    {
+        for(j = 0; j < mat->col; j++)
+        {
+            index = (i * mat->col) + j;
+            val1 = getMatrix_ele(mat,i,j);
+            val1 *= val;
+            enterElement(mat,i,j,val1);
+
+        }
+
+    }
 }
